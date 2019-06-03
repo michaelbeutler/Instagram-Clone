@@ -1,0 +1,69 @@
+Request URL: https://www.instagram.com/web/likes/2058111846196111245/like/
+Request Method: POST
+Status Code: 200 
+Remote Address: 157.240.20.174:443
+Referrer Policy: no-referrer-when-downgrade
+access-control-allow-credentials: true
+access-control-allow-origin: https://www.instagram.com
+cache-control: private, no-cache, no-store, must-revalidate
+content-language: de
+content-length: 16
+content-security-policy: report-uri https://www.instagram.com/security/csp_report/; default-src 'self' https://www.instagram.com; img-src https: data: blob:; font-src https: data:; media-src 'self' blob: https://www.instagram.com https://*.cdninstagram.com https://*.fbcdn.net; manifest-src 'self' https://www.instagram.com; script-src 'self' https://instagram.com https://www.instagram.com https://*.www.instagram.com https://*.cdninstagram.com wss://www.instagram.com https://*.facebook.com https://*.fbcdn.net https://*.facebook.net 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' https://*.www.instagram.com https://www.instagram.com 'unsafe-inline'; connect-src 'self' https://instagram.com https://www.instagram.com https://*.www.instagram.com https://graph.instagram.com https://*.graph.instagram.com https://*.cdninstagram.com https://api.instagram.com wss://www.instagram.com wss://edge-chat.instagram.com https://*.facebook.com https://*.fbcdn.net https://*.facebook.net chrome-extension://boadgeojelhgndaghljhdicfkmllpafd blob:; worker-src 'self' blob: https://www.instagram.com; frame-src 'self' https://instagram.com https://www.instagram.com https://staticxx.facebook.com https://www.facebook.com https://web.facebook.com https://connect.facebook.net https://m.facebook.com; object-src 'none'; upgrade-insecure-requests
+content-type: application/json; charset=utf-8
+date: Mon, 03 Jun 2019 13:43:52 GMT
+expires: Sat, 01 Jan 2000 00:00:00 GMT
+pragma: no-cache
+set-cookie: rur=FRC; Domain=.instagram.com; HttpOnly; Path=/; Secure
+set-cookie: ds_user_id=622152823; Domain=.instagram.com; expires=Sun, 01-Sep-2019 13:43:52 GMT; Max-Age=7776000; Path=/; Secure
+set-cookie: urlgen="{\"85.5.9.142\": 3303}:1hXnFg:I9w5-6QQAADo5sLYA8LEJ6rtmZY"; Domain=.instagram.com; HttpOnly; Path=/; Secure
+set-cookie: csrftoken=WZO57wYrDVHx3TtJ9xKfExMQXdnOc2K3; Domain=.instagram.com; expires=Mon, 01-Jun-2020 13:43:52 GMT; Max-Age=31449600; Path=/; Secure
+status: 200
+strict-transport-security: max-age=31536000
+vary: Accept-Language, Cookie
+x-aed: 1
+x-content-type-options: nosniff
+x-fb-trip-id: 713225770
+x-frame-options: SAMEORIGIN
+x-robots-tag: noindex
+x-xss-protection: 0
+:authority: www.instagram.com
+:method: POST
+:path: /web/likes/2058111846196111245/like/
+:scheme: https
+accept: */*
+accept-encoding: gzip, deflate, br
+accept-language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7
+cache-control: no-cache
+content-length: 0
+content-type: application/x-www-form-urlencoded
+cookie: ig_cb=1; mid=XPUiTQALAAE60jb9xZIWcxVbCeKt; csrftoken=WZO57wYrDVHx3TtJ9xKfExMQXdnOc2K3; shbid=11035; shbts=1559568989.132119; ds_user_id=622152823; sessionid=622152823%3AJ1qRIrc62zh6b8%3A23; rur=FRC; ig_sdc=622152823; urlgen="{\"85.5.9.142\": 3303}:1hXnEi:TzGeQ8FHBBaVjKtyvOjIKmwnEkc"
+origin: https://www.instagram.com
+pragma: no-cache
+referer: https://www.instagram.com/
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
+x-csrftoken: WZO57wYrDVHx3TtJ9xKfExMQXdnOc2K3
+x-ig-app-id: 936619743392459
+x-instagram-ajax: 4053f26563b8
+x-requested-with: XMLHttpRequest
+
+
+
+
+
+Request Cookies					283				
+csrftoken	WZO57wYrDVHx3TtJ9xKfExMQXdnOc2K3	N/A	N/A	N/A	44				
+ds_user_id	622152823	N/A	N/A	N/A	22				
+ig_cb	1	N/A	N/A	N/A	9				
+ig_sdc	622152823	N/A	N/A	N/A	18				
+mid	XPUiTQALAAE60jb9xZIWcxVbCeKt	N/A	N/A	N/A	34				
+rur	FRC	N/A	N/A	N/A	9				
+sessionid	622152823%3AJ1qRIrc62zh6b8%3A23	N/A	N/A	N/A	43				
+shbid	11035	N/A	N/A	N/A	13				
+shbts	1559568989.132119	N/A	N/A	N/A	25				
+urlgen	"{\"85.5.9.142\": 3303}:1hXnEi:TzGeQ8FHBBaVjKtyvOjIKmwnEkc"	N/A	N/A	N/A	66	
+			
+Response Cookies					427				
+csrftoken	WZO57wYrDVHx3TtJ9xKfExMQXdnOc2K3	.instagram.com	/	364.0 days	138		✓		
+ds_user_id	622152823	.instagram.com	/	90.0 days	116		✓		
+rur	FRC	.instagram.com	/	Session	57	✓	✓		
+urlgen	"{\"85.5.9.142\": 3303}:1hXnFg:I9w5-6QQAADo5sLYA8LEJ6rtmZY"	.instagram.com	/	Session	116	✓	✓		
