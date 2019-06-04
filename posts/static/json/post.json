@@ -1,0 +1,170 @@
+{
+    "code": 200,
+    "description": "success",
+    "data": {
+        "posts": [
+            {
+                "user": {
+                    "username": "michi.beutler",
+                    "url": "slug",
+                    "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                },
+                "image": "img/60450661_2376164995975286_6308187267627809876_n.jpg",
+                "location": "Example Location",
+                "caption": "Love these sunsets #ktm ♥",
+                "date": "VOR 2 STUNDEN",
+                "comment": true,
+                "comments": [
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "test"
+                    }
+                ],
+                "likes": [
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    },
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    }
+                ],
+                "liked": true
+            },
+            {
+                "user": {
+                    "username": "michi.beutler",
+                    "url": "slug",
+                    "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                },
+                "image": "img/60450661_2376164995975286_6308187267627809876_n.jpg",
+                "location": "Example Location1",
+                "caption": "Love these sunsets#ktm🥰",
+                "date": "VOR 30 SEKUNDEN",
+                "comment": true,
+                "comments": [
+                    {
+                        "user": {
+                            "username": "timon.74",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "comment": "sooo niceeee 😍"
+                    }
+                ],
+                "likes": [
+                    {
+                        "user": {
+                            "username": "michi.beutler",
+                            "url": "slug",
+                            "avatar": "img/42002584_995628447264876_5615867123332022272_n.jpg"
+                        },
+                        "date": "2019/06/03"
+                    }
+                ],
+                "liked": false
+            }
+        ]
+    }
+}

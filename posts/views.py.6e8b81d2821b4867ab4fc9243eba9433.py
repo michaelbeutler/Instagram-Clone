@@ -5,11 +5,9 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic import TemplateView
 from .models import Post, PostImage, Location
 from django.contrib.humanize.templatetags.humanize import naturalday
-from django.core import serializers
 
 class IndexView(TemplateView):
     template_name = "posts/index.html"
-
 
 @require_http_methods(["GET"])
 def get_posts(request):
@@ -186,15 +184,19 @@ def get_posts(request):
     }
     return JsonResponse(data)
 
-@require_http_methods(["GET"])
-def get_profile(request):
+    @require_http_methods(["GET"])
+def get_posts(request):
+    posts = Post.objects.all()
     data = {
         "code": 200,
         "description": "success",
         "data": {
-            "username": request.user.username,
-            "url": request.user.slug,
-            "avatar": request.user.avatar.url
+            
+                        "username": posts[0].account.username,
+                        "url": posts[0].account.slug,
+                        "avatar": posts[0].account.avatar.url
+            
+            
         }
     }
     return JsonResponse(data)
