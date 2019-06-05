@@ -19,7 +19,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_active = models.BooleanField(_('active'), default=True)
     is_staff = models.BooleanField(_('staff'), default=False)
-    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatars/', default='avatars/default.jpg', null=True, blank=True)
     bio = models.TextField(max_length=100, blank=True)
 
     objects = UserManager()
@@ -29,6 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
+        self.set_password(self.password)
         super(User, self).save(*args, **kwargs)
 
     class Meta:
@@ -41,3 +42,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.username
 
+    def get_absolute_url(self):
+        return reverse("profile", kwargs={"slug": self.slug})

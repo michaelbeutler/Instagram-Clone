@@ -22,7 +22,7 @@ def get_posts(request):
                 {
                     "user": {
                         "username": comment.account.username,
-                        "url": comment.account.slug,
+                        "url": "accounts/" + comment.account.slug,
                         "avatar": comment.account.avatar.url
                     },
                     "comment": comment.text
@@ -31,7 +31,7 @@ def get_posts(request):
         post_data.append({
             "user": {
                 "username": post.account.username,
-                "url": post.account.slug,
+                "url": "accounts/" + post.account.slug,
                 "avatar": post.account.avatar.url
             },
             "image": post.image.image.url,
@@ -61,7 +61,7 @@ def get_profile(request):
         "description": "success",
         "data": {
             "username": request.user.username,
-            "url": request.user.slug,
+            "url": "accounts/" + request.user.slug,
             "avatar": request.user.avatar.url
         }
     }

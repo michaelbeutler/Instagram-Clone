@@ -1,0 +1,19 @@
+html, body {
+    background-color: #fafafa !important;
+    padding-top: 40px;
+    font-size: 14px;
+}
+
+.signup-header {
+    max-width: 250px;
+    margin: auto;
+}
+
+input {
+    border-radius: 0% !important;
+    background-color: #fafafa !important;
+}
+
+button {
+    border-radius: 0% !important;
+}

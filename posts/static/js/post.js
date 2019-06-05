@@ -23,7 +23,7 @@ function drawPost(responseData) {
         html += '</div>';
         html += '<div class="col-5 align-self-center" style="padding-left: 0px;">';
         html += '<div class="row">';
-        html += '<div class="col"><a class="d-block profile-url ml-2" href="#">' + post.user.username + '</a></div>';
+        html += '<div class="col"><a class="d-block profile-url ml-2" href="' + post.user.url + '">' + post.user.username + '</a></div>';
         html += '</div>';
         html += '<div class="row">';
         html += '<div class="col"><small><a class="d-block location-url ml-2">' + post.location + '</a></small></div>';
@@ -51,14 +51,14 @@ function drawPost(responseData) {
         if (post.likes.length < 3) {
             html += '<div class="col">Gefällt ';
             $(post.likes).each(function (i, like) {
-                html += '<a class="profile-url" href="#">' + like.user.username + '</a> ';
+                html += '<a class="profile-url" href="' + like.user.url + '">' + like.user.username + '</a> ';
             });
             html += '</div>';
         } else {
             html += '<div class="col">Gefällt ';
-            html += '<a class="profile-url" href="#">' + post.likes[0].user.username + '</a> ';
-            html += '<a class="profile-url" href="#">' + post.likes[1].user.username + '</a> ';
-            html += '<a class="profile-url" href="#">' + post.likes[2].user.username + '</a> ';
+            html += '<a class="profile-url" href="' + post.likes[0].user.url + '">' + post.likes[0].user.username + '</a> ';
+            html += '<a class="profile-url" href="' + post.likes[1].user.url + '">' + post.likes[1].user.username + '</a> ';
+            html += '<a class="profile-url" href="' + post.likes[2].user.url + '">' + post.likes[2].user.username + '</a> ';
             html += 'und <b>' + (post.likes.length - 3) + ' weiteren</b>';
             html += '</div>';
         }
@@ -69,7 +69,7 @@ function drawPost(responseData) {
             html += '<div class="row">';
             html += '<div class="col">';
 
-            html += '<a class="profile-url" href="#">' + post.user.username + '</a> ' + parseHashTags(post.caption);
+            html += '<a class="profile-url" href="' + post.user.url + '">' + post.user.username + '</a> ' + parseTag(parseHashTags(post.caption));
             if (post.comments.length > 3) {
                 html += '<br><a href="#" class="text-muted"><small>Alle ' + post.comments.length + ' Kommentare ansehen</small></a>';
             }
@@ -82,7 +82,7 @@ function drawPost(responseData) {
 
                 $(post.comments).each(function (i, comment) {
                     if (i < 3) {
-                        html += '<a class="profile-url" href="#">' + comment.user.username + '</a> ' + parseHashTags(comment.comment);
+                        html += '<a class="profile-url" href="' + comment.user.url + '">' + comment.user.username + '</a> ' + parseTag(parseHashTags(comment.comment));
                         if (i < post.comments.length) {
                             html += '<br>';
                         }
@@ -149,4 +149,8 @@ function drawPost(responseData) {
 
 function parseHashTags(string) {
     return string.replace(/([#])\w+/g, '<a class="hashtag" href="hashtag/$&">$&</a> ');
+}
+
+function parseTag(string) {
+    return string.replace(/([@])\w+/g, '<a class="tag" href="accounts/$&">$&</a> ').substring(1);
 }
