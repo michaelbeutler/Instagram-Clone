@@ -10,6 +10,9 @@ from django.core import serializers
 class IndexView(TemplateView):
     template_name = "posts/index.html"
 
+class NewView(TemplateView):
+    template_name = "posts/new.html"
+
 
 @require_http_methods(["GET"])
 def get_posts(request):

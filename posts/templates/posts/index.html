@@ -19,20 +19,20 @@
     <header>
         <nav class="navbar fixed-top navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{% url 'home' %}">
                     <span class="d-inline-block sprite-header-image-logo"></span>
                     <div class="d-inline-block header-image-border"></div>
                     <span class="d-inline-block sprite-header-image-text"></span>
                 </a>
                 <div class="navbar-nav ml-auto d-none d-lg-block">
                     <div class="row">
-                        <div class="col"><a class="nav-link" href="index.html"><span
+                        <div class="col"><a class="nav-link" href="{% url 'home' %}"><span
                                     class="d-inline-block sprite-header-home"></span></a></div>
-                        <div class="col"><a class="nav-link" href="new.html"><span
+                        <div class="col"><a class="nav-link" href="{% url 'new-post' %}"><span
                                     class="d-inline-block sprite-header-new"></span></a></div>
                         <div class="col"><a class="nav-link" href="#"><span
                                     class="d-inline-block sprite-header-like"></span></a></div>
-                        <div class="col"><a class="nav-link" href="profile.html"><span
+                        <div class="col"><a class="nav-link" href="{% url 'profile' %}"><span
                                     class="d-inline-block sprite-header-profile"></span></a></div>
                     </div>
                 </div>
@@ -83,19 +83,19 @@
                     <div class="row">
                         <div class="col-1"></div>
                         <div class="col-2">
-                            <a href="index.html"><span class="d-block sprite-footer-nav-home-after"></span></a>
+                            <a href="{% url 'home' %}"><span class="d-block sprite-footer-nav-home-after"></span></a>
                         </div>
                         <div class="col-2">
                             <a><span class="d-block sprite-footer-nav-search-before"></span></a>
                         </div>
                         <div class="col-2">
-                            <a href="new.html"><span class="d-block sprite-footer-nav-new-before"></span></a>
+                            <a href="{% url 'new-post' %}"><span class="d-block sprite-footer-nav-new-before"></span></a>
                         </div>
                         <div class="col-2">
                             <a><span class="d-block sprite-footer-nav-like-before"></span></a>
                         </div>
                         <div class="col-2">
-                            <a href="profile.html"><img src="img/42002584_995628447264876_5615867123332022272_n.jpg"
+                            <a href="{% url 'profile' %}"><img src="img/42002584_995628447264876_5615867123332022272_n.jpg"
                                     alt="" class="d-block footer-nav-profile rounded-circle footer-nav-profile-avatar" href="#"></a>
                         </div>
                         <div class="col-1"></div>
