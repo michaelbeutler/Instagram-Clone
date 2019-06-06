@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instagram</title>
+
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/sprite.css">
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="stylesheet" href="css/new.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar fixed-top navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="d-inline-block sprite-header-image-logo"></span>
+                    <div class="d-inline-block header-image-border"></div>
+                    <span class="d-inline-block sprite-header-image-text"></span>
+                </a>
+                <div class="navbar-nav ml-auto d-none d-lg-block">
+                    <div class="row">
+                        <div class="col"><a class="nav-link" href="index.html"><span
+                                    class="d-inline-block sprite-header-home"></span></a></div>
+                        <div class="col"><a class="nav-link" href="new.html"><span
+                                    class="d-inline-block sprite-header-new"></span></a></div>
+                        <div class="col"><a class="nav-link" href="#"><span
+                                    class="d-inline-block sprite-header-like"></span></a></div>
+                        <div class="col"><a class="nav-link" href="profile.html"><span
+                                    class="d-inline-block sprite-header-profile"></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="content container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <form>
+                            <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false" class="ml-2">
+                                <div id="drag_upload_file">
+                                    <br>
+                                    <p>Select your image!</p>
+                                    <p><input type="button" class="btn" value="Select File" onclick="file_explorer();">
+                                    </p>
+                                    <input type="file" id="selectfile" accept="image/*" onchange="loadFile(event)">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-3 col-lg-1">
+                        <img id="output" class="new-preview"
+                            src="img/42002584_995628447264876_5615867123332022272_n.jpg" alt="" />
+                    </div>
+                    <div class="col-9 col-lg-11">
+                        <form>
+                            <textarea class="form-control new-caption-textarea" name="caption" id="caption" cols="30"
+                                rows="10" placeholder="Bildunterschrift hinzufügen..."></textarea>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <a>Ort hinzufügen <span class="float-right">></span></a><br><br>
+                        <span class="badge badge-light p-1">Switzerland</span>
+                        <span class="badge badge-light p-1">Hölstein, Switzerland</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-5">
+                    <div class="col">
+                        <button class="btn btn-primary btn-new float-right ml-2">Teilen</button>
+                        <button class="btn btn-secondary btn-new float-right">Abbrechen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="d-lg-none fixed-bottom">
+            <div class="card container footer-nav">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-home-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-search-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-new-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-like-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <img src="img/42002584_995628447264876_5615867123332022272_n.jpg" alt=""
+                                class="d-block footer-nav-profile rounded-circle" href="#">
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <script src="dist/js/jquery-3.4.1.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="js/like.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/file-upload.js"></script>
+</body>
+
+</html>
