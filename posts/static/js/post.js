@@ -38,9 +38,9 @@ function drawPost(responseData) {
         html += '<div class="col">';
 
         if (post.liked) {
-            html += '<span class="d-inline-block btn-like sprite-like-after"></span>';
+            html += '<span data-id="' + post.id + '" class="d-inline-block btn-like sprite-like-after"></span>';
         } else {
-            html += '<span class="d-inline-block btn-like sprite-like-before"></span>';
+            html += '<span data-id="' + post.id + '" class="d-inline-block btn-like sprite-like-before"></span>';
         }
 
         html += '<span class="d-inline-block sprite-comment ml-2"></span>';
@@ -48,13 +48,13 @@ function drawPost(responseData) {
         html += '</div>';
         html += '<div class="row">';
         html += '<a href="#">';
-        if (post.likes.length < 3) {
+        if (post.likes.length < 3 && post.likes.length > 0) {
             html += '<div class="col">Gefällt ';
             $(post.likes).each(function (i, like) {
                 html += '<a class="profile-url" href="' + like.user.url + '">' + like.user.username + '</a> ';
             });
             html += '</div>';
-        } else {
+        } else if (post.likes.length > 0) {
             html += '<div class="col">Gefällt ';
             html += '<a class="profile-url" href="' + post.likes[0].user.url + '">' + post.likes[0].user.username + '</a> ';
             html += '<a class="profile-url" href="' + post.likes[1].user.url + '">' + post.likes[1].user.username + '</a> ';
@@ -118,17 +118,20 @@ function drawPost(responseData) {
             if ($(this).hasClass('sprite-like-before')) {
                 $(this).addClass('sprite-like-after');
                 $(this).removeClass('sprite-like-before');
+                like($(this).data('id'), function () { location.reload(false); });
                 return;
             } else {
-                console.log(1);
+                console.log($(this).data('id'));
                 $(this).removeClass('sprite-like-after');
                 $(this).addClass('sprite-like-before');
+                unlike($(this).data('id'), function () { location.reload(false); });
                 return;
             }
         });
         $('.post-image').dblclick(function () {
             $(this).parent().find('.sprite-like-before').addClass('sprite-like-after');
             $(this).parent().find('.sprite-like-before').removeClass('sprite-like-before');
+            like($(this).parent().find('.sprite-like-after').data('id'), function () { location.reload(false); });
         });
         $('.textarea-comment').keydown(function () {
             if ($(this).val().length > 0) {
@@ -152,5 +155,5 @@ function parseHashTags(string) {
 }
 
 function parseTag(string) {
-    return string.replace(/([@])\w+/g, '<a class="tag" href="accounts/$&">$&</a> ').substring(1);
+    return string.replace(/([@])\w+([a-z]|[0-9]|[.]|[-]|[_])\w+/g, '<a class="tag" href="accounts/$&">$&</a> ').substring(1);
 }

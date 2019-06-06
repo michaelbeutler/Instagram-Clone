@@ -1,37 +1,49 @@
-$(document).ready(function () {
-    $('.btn-like').on('click', function () {
-        if ($(this).hasClass('sprite-like-before')) {
-            $(this).addClass('sprite-like-after');
-            $(this).removeClass('sprite-like-before');
-        } else {
-            $(this).addClass('sprite-like-before');
-            $(this).removeClass('sprite-like-after');
+function like(id) {
+    $.ajax({
+        url: "like/" + id,
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        success: function (responseData) {
+            callback(responseData);
         }
     });
-    $('.post-image').dblclick(function () {
-        $(this).parent().find('.sprite-like-before').addClass('sprite-like-after');
-        $(this).parent().find('.sprite-like-before').removeClass('sprite-like-before');
+}
+function unlike(id) {
+    $.ajax({
+        url: "unlike/" + id,
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        success: function (responseData) {
+            callback(responseData);
+        }
     });
-    function like(id) {
-        $.ajax({
-            url: "json/post.json",
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json",
-            success: function (responseData) {
-                callback(responseData);
+}
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
             }
-        });
+        }
     }
-    function unlike(id) {
-        $.ajax({
-            url: "json/post.json",
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json",
-            success: function (responseData) {
-                callback(responseData);
-            }
-        });
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function (xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
     }
-})
+});

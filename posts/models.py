@@ -50,3 +50,14 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return reverse("Comment_detail", kwargs={"pk": self.pk})
+
+class Like(models.Model):
+    account = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes', default=1)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='likes', default=1)
+
+    def __str__(self):
+        return self.account.username + ' > ' + self.post.caption
+
+    def get_absolute_url(self):
+        return reverse("like_detail", kwargs={"pk": self.pk})
+

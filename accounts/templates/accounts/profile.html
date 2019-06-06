@@ -1,1 +1,165 @@
-{{ object.username }}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instagram</title>
+
+
+    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sprite.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar fixed-top navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="d-inline-block sprite-header-image-logo"></span>
+                    <div class="d-inline-block header-image-border"></div>
+                    <span class="d-inline-block sprite-header-image-text"></span>
+                </a>
+                <div class="navbar-nav ml-auto d-none d-lg-block">
+                    <div class="row">
+                        <div class="col"><a class="nav-link" href="index.html"><span
+                                    class="d-inline-block sprite-header-home"></span></a></div>
+                        <div class="col"><a class="nav-link" href="new.html"><span
+                                    class="d-inline-block sprite-header-new"></span></a></div>
+                        <div class="col"><a class="nav-link" href="#"><span
+                                    class="d-inline-block sprite-header-like"></span></a></div>
+                        <div class="col"><a class="nav-link" href="profile.html"><span
+                                    class="d-inline-block sprite-header-profile"></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="content container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3 col-lg-4 mr-1">
+                        <img class="profile-avatar rounded-circle"
+                            src="{{ object.avatar.url }}" alt="" />
+                    </div>
+                    <div class="col-9 col-lg-7 pt-4">
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="display-5">{{ object.username }}</h4>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-secondary btn-sm">Profil bearbeiten</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><b>32</b> Beiträge</div>
+                            <div class="col"><b>985</b> Abonnenten</div>
+                            <div class="col"><b>703</b> abonniert</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <p>
+                                    <b>Michi</b><br>
+                                    {{ object.bio }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <article class="post-preview">
+                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                        class="post-preview-image" alt="">
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="post-preview">
+                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                        class="post-preview-image" alt="">
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="post-preview">
+                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                        class="post-preview-image" alt="">
+                                </article>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <article class="post-preview">
+                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                        class="post-preview-image" alt="">
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="post-preview">
+                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                        class="post-preview-image" alt="">
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="post-preview">
+                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                        class="post-preview-image" alt="">
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="d-lg-none fixed-bottom">
+            <div class="card container footer-nav">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-home-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-search-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-new-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <span class="d-block sprite-footer-nav-like-before"></span>
+                        </div>
+                        <div class="col-2">
+                            <img src="img/42002584_995628447264876_5615867123332022272_n.jpg" alt=""
+                                class="d-block footer-nav-profile rounded-circle" href="#">
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/like.js' %}"></script>
+    <script src="{% static 'js/comment.js' %}"></script>
+    <script src="{% static 'js/file-upload.js' %}"></script>
+</body>
+
+</html>

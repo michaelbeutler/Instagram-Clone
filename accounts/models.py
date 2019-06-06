@@ -29,7 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
-        self.set_password(self.password)
+        #self.set_password(self.password)
         super(User, self).save(*args, **kwargs)
 
     class Meta:

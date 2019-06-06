@@ -50,3 +50,8 @@
     padding-right: 5px;
     font-weight: bold;
 }
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+}
