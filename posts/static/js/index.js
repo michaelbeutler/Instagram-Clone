@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    loadPost(0, function (data) { drawPost(data) });
+    loadStartpageContent();
     loadProfile(function (responseData) {
         console.log(responseData);
         $('.footer-nav-profile-avatar').attr("src", responseData.data.avatar);

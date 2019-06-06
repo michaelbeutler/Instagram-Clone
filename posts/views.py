@@ -7,6 +7,7 @@ from .models import Post, PostImage, Location
 from django.contrib.humanize.templatetags.humanize import naturalday
 from django.core import serializers
 from django.shortcuts import get_object_or_404
+from accounts.models import User
 
 class IndexView(TemplateView):
     template_name = "posts/index.html"
@@ -77,7 +78,10 @@ def get_posts(request):
                 "avatar": post.account.avatar.url
             },
             "image": post.image.image.url,
-            "location": post.location.name,
+            "location": {
+                "name": post.location.name,
+                "url": post.location.name
+            },
             "caption": post.caption,
             "date": naturalday(post.date).upper(),
             "comment": True,
@@ -105,6 +109,27 @@ def get_profile(request):
             "username": request.user.username,
             "url": "accounts/" + request.user.slug,
             "avatar": request.user.avatar.url
+        }
+    }
+    return JsonResponse(data)
+
+@require_http_methods(["GET"])
+def get_users(request):
+    users = User.objects.all()
+    users_data = []
+    for user in users:
+        users_data.append({
+            "id": user.pk,
+            "username": user.username,
+            "url": "accounts/" + user.slug,
+            "avatar": user.avatar.url
+        })
+
+    data = {
+        "code": 200,
+        "description": "success",
+        "data": {
+            "users": users_data
         }
     }
     return JsonResponse(data)

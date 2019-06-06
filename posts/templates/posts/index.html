@@ -32,7 +32,7 @@
                                     class="d-inline-block sprite-header-new"></span></a></div>
                         <div class="col"><a class="nav-link" href="#"><span
                                     class="d-inline-block sprite-header-like"></span></a></div>
-                        <div class="col"><a class="nav-link" href="#"><span
+                        <div class="col"><a class="nav-link" href="{% url 'profile' user.slug %}"><span
                                     class="d-inline-block sprite-header-profile"></span></a></div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
 
     <section class="content container">
         <div class="row pb-5">
-            <div class="col post-container">
+            <div class="col post-container" id="post-container">
                 
             </div>
             <div class="col hidden-md-down">
@@ -50,12 +50,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-1 align-self-center">
-                                <img src="img/42002584_995628447264876_5615867123332022272_n.jpg" alt=""
+                                <img src="{{ user.avatar.url }}" alt=""
                                     class="d-block index-avatar rounded-circle index-sidepanel-avatar" href="#">
                             </div>
                             <div class="col-10 align-self-center" style="padding-left: 0px;">
                                 <div class="row">
-                                    <div class="col"><a class="d-block profile-url ml-5 index-sidepanel-username" href="#">Loading...</a>
+                                    <div class="col"><a class="d-block profile-url ml-5 index-sidepanel-username" href="{% url 'profile' user.slug %}">Loading...</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                             <a><span class="d-block sprite-footer-nav-like-before"></span></a>
                         </div>
                         <div class="col-2">
-                            <a href="#"><img src="img/42002584_995628447264876_5615867123332022272_n.jpg"
+                            <a href="#"><img src="{{ user.avatar.url }}"
                                     alt="" class="d-block footer-nav-profile rounded-circle footer-nav-profile-avatar"></a>
                         </div>
                         <div class="col-1"></div>
@@ -108,10 +108,13 @@
 
 
     <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/indexed/dexie.js' %}"></script>
+    <script src="{% static 'js/indexed/init.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/like.js' %}"></script>
     <script src="{% static 'js/comment.js' %}"></script>
-    <script src="{% static 'js/post.js' %}"></script>
+    <script src="{% static 'js/visualizers/visualize_post.js' %}"></script>
+    <script src="{% static 'js/post.js' %}"></script>  
     <script src="{% static 'js/index.js' %}"></script>
 </body>
 
