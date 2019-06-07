@@ -1,19 +1,36 @@
 from django.shortcuts import render
-from .models import Post, PostImage, Location, Like
+from .models import Post, Location, Like
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-from django.views.generic import TemplateView
-from .models import Post, PostImage, Location
+from django.views.generic import TemplateView, CreateView
 from django.contrib.humanize.templatetags.humanize import naturalday
 from django.core import serializers
 from django.shortcuts import get_object_or_404
 from accounts.models import User
+from django.urls import reverse_lazy
 
 class IndexView(TemplateView):
     template_name = "posts/index.html"
 
-class NewView(TemplateView):
-    template_name = "posts/new.html"
+import datetime
+class NewView(CreateView):
+    template_name = 'posts/new.html'
+    model = Post
+    fields = ['image', 'caption', 'location']
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.account = self.request.user
+        post.date = datetime.datetime.now()
+        #article.save()  # This is redundant, see comments.
+        return super(NewView, self).form_valid(form)
+    
+
+@require_http_methods(["POST"])
+def upload_post_image(request):
+    PostImage(image=request.file)
+    return JsonResponse({'code':200, 'description':'success'})
 
 @require_http_methods(["POST"])
 def like(request, pk):
@@ -77,7 +94,7 @@ def get_posts(request):
                 "url": "accounts/" + post.account.slug,
                 "avatar": post.account.avatar.url
             },
-            "image": post.image.image.url,
+            "image": post.image.url,
             "location": {
                 "name": post.location.name,
                 "url": post.location.name
@@ -109,6 +126,18 @@ def get_profile(request):
             "username": request.user.username,
             "url": "accounts/" + request.user.slug,
             "avatar": request.user.avatar.url
+        }
+    }
+    return JsonResponse(data)
+
+@require_http_methods(["GET"])
+def update(request):
+    update = False
+    data = {
+        "code": 200,
+        "description": "success",
+        "data": {
+            "update": update
         }
     }
     return JsonResponse(data)

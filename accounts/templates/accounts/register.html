@@ -42,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control"
+                                            <input type="password" name="password1" class="form-control"
                                                 placeholder="Password" required="" id="id_password">
                                         </div>
                                     </div>
@@ -68,6 +68,9 @@
                                             <small>By signing up, you agree to our Terms . Learn how we collect, use and
                                                 share your data in our Data Policy and how we use cookies and similar
                                                 technology in our Cookies Policy .</small>
+                                                {% for field in form.visible_fields %}
+                                                        <br>{{ field.errors }}
+                                                {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +84,7 @@
                 <div class="col-12">
                     <div class="card p-1">
                         <div class="card-body text-center">
-                            Have an account? <a href="">Log In</a>
+                            Have an account? <a href="{% url 'login' %}">Log In</a>
                         </div>
                     </div>
                 </div>

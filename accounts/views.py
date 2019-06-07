@@ -1,6 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from .forms import UserCreationForm
+from .forms import CustomUserCreationForm
 from django.views.generic import CreateView, DetailView
 from .models import User
 from django.utils.text import slugify
@@ -15,7 +15,7 @@ class RegisterView(CreateView):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -24,7 +24,7 @@ def register(request):
             user = User(username=username, password=raw_password, email=email)
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
 class ProfileView(DetailView):

@@ -5,6 +5,7 @@ function like(id) {
         dataType: "json",
         contentType: "application/json",
         success: function (responseData) {
+            db.posts.update(id, {liked: true});
             callback(responseData);
         }
     });
@@ -16,6 +17,7 @@ function unlike(id) {
         dataType: "json",
         contentType: "application/json",
         success: function (responseData) {
+            db.posts.update(id, {liked: false});
             callback(responseData);
         }
     });

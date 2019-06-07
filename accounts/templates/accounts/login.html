@@ -1,0 +1,67 @@
+{% extends 'accounts/base.html' %} 
+{% block head %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}"> 
+{% endblock head %} 
+{% block content %} 
+{% load static %}
+<div class="content-section">
+    <div class="row">
+        <div class="col-12 mx-auto" style="max-width: 500px">
+            <div class="card p-3 pb-2 bt-4">
+                <div class="card-body">
+                    <img class="signup-header mx-auto d-block" src="{% static 'img/instagram-new-logo.png' %}" draggable="false">
+                    <h5 class="card-subtitle mb-3 text-muted text-center mt-2">Sign In to see photos and videos from your friends.</h5>
+
+                    <form method="POST" class="form mt-4">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" name="username" maxlength="150" autofocus="" class="form-control" placeholder="Username" required="" id="id_username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password" required="" id="id_password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <div class="text-center text-muted">
+                                    <small>By signing In, you agree to our Terms . Learn how we collect, use and
+                                        share your data in our Data Policy and how we use cookies and similar
+                                        technology in our Cookies Policy .</small> 
+                                        {% for field in form.visible_fields %}
+                                        <br>{{ field.errors }} 
+                                        {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 mx-auto" style="max-width: 500px">
+            <div class="card p-1">
+                <div class="card-body text-center">
+                    Don't have an account? <a href="{% url 'register' %}">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -104,12 +104,14 @@
             </div>
         </footer>
     </section>
+    <button class="btn" onclick="db.delete().then(function () { window.location.reload() });">Refresh</button>
 
 
 
     <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/indexed/dexie.js' %}"></script>
     <script src="{% static 'js/indexed/init.js' %}"></script>
+    <script src="{% static 'js/indexed/check_update.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/like.js' %}"></script>
     <script src="{% static 'js/comment.js' %}"></script>

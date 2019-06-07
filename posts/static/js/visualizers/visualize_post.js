@@ -7,7 +7,7 @@ function constructPosts(json) {
         $('.post-image').dblclick(function () {
             $(this).parent().find('.sprite-like-before').addClass('sprite-like-after');
             $(this).parent().find('.sprite-like-before').removeClass('sprite-like-before');
-            like($(this).parent().find('.sprite-like-after').data('id'), function () { location.reload(false); });
+            like($(this).parent().find('.sprite-like-after').data('id'), function () { });
         });
         $('.textarea-comment').keydown(function () {
             if ($(this).val().length > 0) {
@@ -62,6 +62,13 @@ function constructPost(post) {
                     break;
             }
 
+        } else if (post.liked) {
+            html = `
+                <div class="col"><a href="#">Gefällt </a>
+                    <a class="profile-url" href="#">dir</a>
+                    und keiner anderen Person.
+                </div>
+            `;
         }
         return html;
     }
