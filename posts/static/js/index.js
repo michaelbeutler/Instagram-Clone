@@ -1,21 +1,17 @@
 $(document).ready(function () {
-    loadStartpageContent();
-    loadProfile(function (responseData) {
-        console.log(responseData);
-        $('.footer-nav-profile-avatar').attr("src", responseData.data.avatar);
-        $('.index-sidepanel-username').text(responseData.data.username);
-        $('.index-sidepanel-avatar').attr("src", responseData.data.avatar);
+    // set current user
+    requestCurrentUser(function (data) {
+        setCurrentUser(generateUserFromJSON(data));
     });
-})
 
-function loadProfile(callback) {
-    $.ajax({
-        url: "get_profile/",
-        type: "GET",
-        dataType: "json",
-        contentType: "application/json",
-        success: function (responseData) {
-            callback(responseData);
-        }
+    $('.insert-current-user-username').text(getCurrentUser().username);
+    $('.insert-current-user-avatar').attr("src", getCurrentUser().avatar);
+
+    // create needed objects
+    requestPostList(function (data) {
+        generatePostsFromJSON(data, function () {
+            // display them
+            displayPosts($('#postContainer'));
+        })
     });
-}
+});

@@ -42,7 +42,7 @@
 
     <section class="content container">
         <div class="row pb-5">
-            <div class="col post-container" id="post-container">
+            <div class="col post-container" id="postContainer">
                 
             </div>
             <div class="col hidden-md-down">
@@ -50,12 +50,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-1 align-self-center">
-                                <img src="{{ user.avatar.url }}" alt=""
-                                    class="d-block index-avatar rounded-circle index-sidepanel-avatar" href="#">
+                                <img src="/media/avatars/default.jpg" alt=""
+                                    class="d-block index-avatar rounded-circle insert-current-user-avatar" href="#">
                             </div>
                             <div class="col-10 align-self-center" style="padding-left: 0px;">
                                 <div class="row">
-                                    <div class="col"><a class="d-block profile-url ml-5 index-sidepanel-username" href="{% url 'profile' user.slug %}">Loading...</a>
+                                    <div class="col"><a class="d-block profile-url ml-5 insert-current-user-username" href="{% url 'profile' user.slug %}">{{user.username}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -104,19 +104,21 @@
             </div>
         </footer>
     </section>
-    <button class="btn" onclick="db.delete().then(function () { window.location.reload() });">Refresh</button>
 
 
 
     <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'js/indexed/dexie.js' %}"></script>
-    <script src="{% static 'js/indexed/init.js' %}"></script>
-    <script src="{% static 'js/indexed/check_update.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/like.js' %}"></script>
-    <script src="{% static 'js/comment.js' %}"></script>
-    <script src="{% static 'js/visualizers/visualize_post.js' %}"></script>
-    <script src="{% static 'js/post.js' %}"></script>  
+
+    <script src="{% static 'js/ajax.js' %}"></script>
+
+    <script src="{% static 'js/users.js' %}"></script>
+    <script src="{% static 'js/user.js' %}"></script>
+    <script src="{% static 'js/posts.js' %}"></script>
+    <script src="{% static 'js/post.js' %}"></script>
+    <script src="{% static 'js/locations.js' %}"></script>
+    <script src="{% static 'js/location.js' %}"></script>
+
     <script src="{% static 'js/index.js' %}"></script>
 </body>
 

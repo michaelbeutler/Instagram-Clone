@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Location, Like
+from .models import Post, Location, Like, Comment
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.generic import TemplateView, CreateView
@@ -25,12 +25,20 @@ class NewView(CreateView):
         post.date = datetime.datetime.now()
         #article.save()  # This is redundant, see comments.
         return super(NewView, self).form_valid(form)
-    
 
 @require_http_methods(["POST"])
 def upload_post_image(request):
     PostImage(image=request.file)
     return JsonResponse({'code':200, 'description':'success'})
+
+
+@require_http_methods(["POST"])
+def comment(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    comment = Comment(account=request.user, post=post, text=request.POST.get('text'))
+    comment.save()
+    
+    return JsonResponse({'code':200, 'description':'success', 'data': request.POST})
 
 @require_http_methods(["POST"])
 def like(request, pk):
@@ -64,7 +72,9 @@ def get_posts(request):
         for comment in post.comments.all():
             comment_data.append(
                 {
+                    "id": comment.pk,
                     "user": {
+                        "id": comment.account.pk,
                         "username": comment.account.username,
                         "url": "accounts/" + comment.account.slug,
                         "avatar": comment.account.avatar.url
@@ -77,7 +87,9 @@ def get_posts(request):
         for like in post.likes.all():
             like_data.append(
                 {
+                    "id": like.pk,
                     "user": {
+                        "id": like.account.pk,
                         "username": like.account.username,
                         "url": "accounts/" + like.account.slug,
                         "avatar": like.account.avatar.url
@@ -90,18 +102,20 @@ def get_posts(request):
         post_data.append({
             "id": post.pk,
             "user": {
+                "id": post.account.pk,
                 "username": post.account.username,
                 "url": "accounts/" + post.account.slug,
                 "avatar": post.account.avatar.url
             },
             "image": post.image.url,
             "location": {
+                "id": post.location.pk,
                 "name": post.location.name,
                 "url": post.location.name
             },
             "caption": post.caption,
             "date": naturalday(post.date).upper(),
-            "comment": True,
+            "allowComment": True,
             "comments": comment_data,
             "likes": like_data,
             "liked": liked       
@@ -126,6 +140,22 @@ def get_profile(request):
             "username": request.user.username,
             "url": "accounts/" + request.user.slug,
             "avatar": request.user.avatar.url
+        }
+    }
+    return JsonResponse(data)
+
+@require_http_methods(["GET"])
+def get_current_user(request):
+    data = {
+        "code": 200,
+        "description": "success",
+        "data": {
+            "user": {
+                "id": request.user.pk,
+                "username": request.user.username,
+                "url": "accounts/" + request.user.slug,
+                "avatar": request.user.avatar.url
+            } 
         }
     }
     return JsonResponse(data)
