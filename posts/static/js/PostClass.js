@@ -171,7 +171,7 @@ class Post {
             this.likes.push(new Like(u1, this));
             this.liked = true;
         }
-        
+
         this.likeUpdate();
     }
 
