@@ -9,8 +9,8 @@ def user_post_path(instance, filename):
 
 class Post(models.Model):
     account         = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', default=1)
-    caption         = models.CharField(max_length=100, blank=False)
-    location        = models.ForeignKey('Location', on_delete=models.CASCADE)
+    caption         = models.CharField(max_length=100, blank=True)
+    location        = models.ForeignKey('Location', on_delete=models.CASCADE, blank=True)
     image           = models.ImageField(upload_to=user_post_path, height_field=None, width_field=None, max_length=None)
     date            = models.DateTimeField(auto_now=False, auto_now_add=False)
 

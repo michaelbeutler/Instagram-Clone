@@ -21,11 +21,19 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(_('staff'), default=False)
     avatar = models.ImageField(upload_to='avatars/', default='avatars/default.jpg', null=True, blank=True)
     bio = models.TextField(max_length=100, blank=True)
+    bp = models.BooleanField(default=False)
+    fullname = models.CharField(max_length=30, blank=True)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
+
+    def getFollowers(self):
+        return self.followers.all()
+
+    def getFollowing(self):
+        return self.following.all()
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
@@ -44,3 +52,15 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_absolute_url(self):
         return reverse("profile", kwargs={"slug": self.slug})
+
+class UserRelation(models.Model):
+    follower = models.ForeignKey("User", on_delete=models.CASCADE, related_name='following')
+    target = models.ForeignKey("User", on_delete=models.CASCADE, related_name='followers')
+    accepted = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = _("UserRelation")
+        verbose_name_plural = _("UserRelations")
+
+    def __str__(self):
+        return self.follower.username + " follows " + self.target.username + " | accepted: " + str(self.accepted)

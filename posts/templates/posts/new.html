@@ -33,7 +33,7 @@
                                     class="d-inline-block sprite-header-new"></span></a></div>
                         <div class="col"><a class="nav-link" href="#"><span
                                     class="d-inline-block sprite-header-like"></span></a></div>
-                        <div class="col"><a class="nav-link" href="profile.html"><span
+                        <div class="col"><a class="nav-link" href="{% url 'profile' user.slug %}"><span
                                     class="d-inline-block sprite-header-profile"></span></a></div>
                     </div>
                 </div>
@@ -86,9 +86,6 @@
                     <div class="col">
                         <button class="btn btn-primary btn-new float-right ml-2" type="submit">Teilen</button>
                         <button class="btn btn-secondary btn-new float-right">Abbrechen</button>
-                        {% for field in form.visible_fields %}
-                        <br>{{field.label}} {{ field.errors }}
-                        {% endfor %}
                     </div>
                 </div>
             </div>

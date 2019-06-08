@@ -46,12 +46,36 @@
     border: 0.5px #8f8f8f solid;
     padding: 4px;
     height: 27px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #3897f0;
+    color: #fff;
+    border: 0.5px #3897f0 solid;
+    padding: 4px;
+    height: 27px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-weight: bold;
 }
 
 .profile-avatar {
     width: 150px;
     height: 150px;
+}
+
+.form-control {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #efefef;
+    border-radius: 0%;
+}
+
+.change-avatar {
+    color: #3897f0;
+    cursor: pointer;
 }
