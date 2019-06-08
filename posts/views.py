@@ -3,7 +3,7 @@ from .models import Post, Location, Like, Comment
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.generic import TemplateView, CreateView
-from django.contrib.humanize.templatetags.humanize import naturalday
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.core import serializers
 from django.shortcuts import get_object_or_404
 from accounts.models import User
@@ -114,7 +114,7 @@ def get_posts(request):
                 "url": post.location.name
             },
             "caption": post.caption,
-            "date": naturalday(post.date).upper(),
+            "date": naturaltime(post.date).upper(),
             "allowComment": True,
             "comments": comment_data,
             "likes": like_data,

@@ -86,22 +86,12 @@ class Post {
                         `
                     break;
 
-                case 2:
-                    like_html = `
-                        <div class="col"><a href="#">Gefällt </a>
-                            <a class="profile-url" href="${this.likes[0].user.url}">${this.likes[0].user.username}</a> und 
-                            <a class="profile-url" href="${this.likes[1].user.url}">${this.likes[1].user.username}</a>
-                        </div>
-                        `
-                    break;
-
                 default:
-                    if (this.likes.length > 2) {
+                    if (this.likes.length > 1) {
                         like_html = `
                         <div class="col"><a href="#">Gefällt </a>
-                            <a class="profile-url" href="${this.likes[0].user.url}">${this.likes[0].user.username}</a>
-                            <a class="profile-url" href="${this.likes[1].user.url}">${this.likes[1].user.username}</a> und 
-                            <a class="profile-url" href="likes">${(this.likes.length - 2)}</a> weiteren Personen
+                            <a class="profile-url" href="${this.likes[0].user.url}">${this.likes[0].user.username}</a> und
+                            <a class="profile-url" href="likes">${(this.likes.length - 1)} weiteren Personen</a>
                         </div>
                         `
                     }
