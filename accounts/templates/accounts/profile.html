@@ -70,7 +70,7 @@
                                 {% if following %}
                                 <button class="btn btn-secondary btn-sm">Abboniert</button>
                                 {% else %}
-                                <button class="btn btn-primary btn-sm">Abbonieren</button>
+                                <button class="btn btn-primary btn-sm" onclick="findUserById({{ object.pk }}).follow()">Abbonieren</button>
                                 {% endif %}
                                 {% endif %}
 
@@ -99,50 +99,21 @@
                 <div class="row">
                     <div class="col">
                         <div class="row">
-                            <div class="col">
+                            {% for p in object.posts.all %}
+                            <div class="col-md-4 col-12">
                                 <article class="post-preview">
-                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
+                                    <img src="{{ p.image.url }}"
                                         class="post-preview-image" alt="">
                                 </article>
                             </div>
-                            <div class="col">
-                                <article class="post-preview">
-                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
-                                        class="post-preview-image" alt="">
-                                </article>
-                            </div>
-                            <div class="col">
-                                <article class="post-preview">
-                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
-                                        class="post-preview-image" alt="">
-                                </article>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col">
-                                <article class="post-preview">
-                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
-                                        class="post-preview-image" alt="">
-                                </article>
-                            </div>
-                            <div class="col">
-                                <article class="post-preview">
-                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
-                                        class="post-preview-image" alt="">
-                                </article>
-                            </div>
-                            <div class="col">
-                                <article class="post-preview">
-                                    <img src="img/60450661_2376164995975286_6308187267627809876_n.jpg"
-                                        class="post-preview-image" alt="">
-                                </article>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <br>
 
         {% if is_current_user %}
         <!-- Modal -->
@@ -240,6 +211,13 @@
 
     <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/users.js' %}"></script>
+    <script src="{% static 'js/user.js' %}"></script>
+    <script src="{% static 'js/posts.js' %}"></script>
+    <script src="{% static 'js/post.js' %}"></script>
+    <script src="{% static 'js/locations.js' %}"></script>
+    <script src="{% static 'js/location.js' %}"></script>
 </body>
 
 </html>

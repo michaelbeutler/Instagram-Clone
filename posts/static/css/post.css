@@ -13,7 +13,27 @@
     max-width: 614px;
     max-height: 766.922px;
     width: 100%;
+    height: auto;
+    display: block;
 }
+
+@media only screen and (max-width: 600px) {
+    .post-image {
+        max-width: 375px;
+        max-height: 375px;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .card {
+        max-width: 375px;
+        border: none;
+    }
+
+    .post-seperator {
+        display: none;
+    }
+  }
 
 .post-header-avatar {
     width: 32px;
@@ -63,7 +83,9 @@
 }
 
 .post-preview-image {
-    max-width: 293px;
-    max-height: 293px;
-    width: 100%;
+    max-width: 220px;
+    max-height: 220px;
+    align-content: center;
+    width: 220px;
+    height: 220px;
 }

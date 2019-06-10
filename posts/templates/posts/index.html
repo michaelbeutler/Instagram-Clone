@@ -96,7 +96,7 @@
                             <a><span class="d-block sprite-footer-nav-like-before"></span></a>
                         </div>
                         <div class="col-2">
-                            <a href="#"><img src="{{ user.avatar.url }}"
+                            <a href="{% url 'profile' user.slug %}"><img src="{{ user.avatar.url }}"
                                     alt="" class="d-block footer-nav-profile rounded-circle footer-nav-profile-avatar"></a>
                         </div>
                         <div class="col-1"></div>

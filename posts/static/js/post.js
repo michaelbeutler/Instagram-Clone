@@ -23,7 +23,7 @@ class Post {
         <article class="post card">
             <header class="post-header">
                 <div class="row">
-                    <div class="col-1 align-self-center"><img src="${this.user.avatar}" alt=""
+                    <div class="col-md-1 col-2 col-sm-2 align-self-center"><img src="${this.user.avatar}" alt=""
                             class="d-block post-header-avatar rounded-circle"></div>
                     <div class="col-5 align-self-center" style="padding-left: 0px;">
                         <div class="row">
@@ -34,10 +34,10 @@ class Post {
                             <div class="col"><small><a class="d-block location-url ml-2" href="${this.locationObj.url}">${this.locationObj.name}</a></small></div>
                         </div>
                     </div>
-                    <div class="col-6"></div>
+                    <div class="col-md-6 col-5 col-sm-5"></div>
                 </div>
             </header>
-            <img src="${this.image}" alt="" class="post-image" data-id="${this.id}">
+            <img src="${this.image}" alt="" class="post-image" data-id="${this.id}" style="object-fit: cover;" decoding="auto" sizes="614px">
             <footer class="post-footer">
                 <div class="row">
                     <div class="col"><span class="d-inline-block btn-like ${liked}" id="likeButton${this.id}" onclick="findPostById(${this.id}).like(${getCurrentUserId()})"></span><span
@@ -61,15 +61,15 @@ class Post {
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-md-10 col-9">
                             <textarea id="commentInput${this.id}" class="d-inline-block form-group form-control-sm textarea-comment"
                             placeholder="Kommentar hinzufügen ..." autocomplete="off" autocorrect="off"></textarea>
                     </div>
-                    <div class="col-2"><button id="commentButton${this.id}" class="d-inline-block btn" onclick="findPostById(${this.id}).comment(${getCurrentUserId()})" disabled="true">Posten</button></div>
+                    <div class="col-md-2 col-3"><button id="commentButton${this.id}" class="d-inline-block btn" onclick="findPostById(${this.id}).comment(${getCurrentUserId()})" disabled="true">Posten</button></div>
                 </div>
             </footer>
         </article>
-        <br>
+        <br class="post-seperator">
         `;
         return html;
     }
@@ -255,9 +255,32 @@ function parseCaption(string) {
 }
 
 function parseHashTags(string) {
-    return string.replace(/([#])\w+/g, '<a class="hashtag" href="hashtag/$&">$&</a> ');
+    return string.replace(/([#])\w+/g, `<a class="hashtag" onclick="openHashtag('$&')">$&</a> `);
 }
 
 function parseTag(string) {
-    return string.replace(/([@])\w+([a-z]|[0-9]|[.]|[-]|[_])\w+/g, '<a class="tag" href="accounts/$&">$&</a> ');
+    return string.replace(/([@])\w+([a-z]|[0-9]|[.]|[-]|[_])\w+/g, `<a class="tag" onclick="openUserTag('$&')">$&</a> `);
+}
+
+function openHashtag(hashtag) {
+    if (hashtag.substring(0, 1) == '#') {
+        hashtag = hashtag.slice(1);
+    }
+    window.location.href = 'hashtag/' + slugify(hashtag);
+}
+
+function openUserTag(usertag) {
+    if (usertag.substring(0, 1) == '@') {
+        usertag = usertag.slice(1);
+    }
+    window.location.href = 'accounts/' + slugify(usertag);
+}
+
+function slugify(text) {
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
 }

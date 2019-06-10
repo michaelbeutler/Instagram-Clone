@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Post, Location, Like, Comment
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.core import serializers
 from django.shortcuts import get_object_or_404

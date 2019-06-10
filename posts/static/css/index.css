@@ -4,6 +4,7 @@ html, body {
     padding: 0;
     height: 0;
     /*background-color: rgb(250, 164, 164);*/
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -53,7 +54,12 @@ img {
 
 .hashtag {
     cursor: pointer;
-    color: rgb(0, 53, 105);
+    color: #003569 !important;
+}
+
+.tag {
+    cursor: pointer;
+    color: #003569 !important;
 }
 
 .index-sidepanel {
