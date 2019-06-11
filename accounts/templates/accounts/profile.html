@@ -70,7 +70,8 @@
                                 {% if following %}
                                 <button class="btn btn-secondary btn-sm">Abboniert</button>
                                 {% else %}
-                                <button class="btn btn-primary btn-sm" onclick="findUserById({{ object.pk }}).follow()">Abbonieren</button>
+                                <button class="btn btn-primary btn-sm"
+                                    onclick="findUserById({{ object.pk }}).follow()">Abbonieren</button>
                                 {% endif %}
                                 {% endif %}
 
@@ -84,11 +85,10 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <p>
+                                <p id="bio">
                                     {% if object.fullname %}
                                     <b>{{ object.fullname }}</b><br>
                                     {% endif %}
-                                    {{ object.bio|linebreaks  }}
                                 </p>
                             </div>
                         </div>
@@ -102,8 +102,7 @@
                             {% for p in object.posts.all %}
                             <div class="col-md-4 col-12">
                                 <article class="post-preview">
-                                    <img src="{{ p.image.url }}"
-                                        class="post-preview-image" alt="">
+                                    <img src="{{ p.image.url }}" class="post-preview-image" alt="">
                                 </article>
                             </div>
                             {% endfor %}
@@ -218,6 +217,12 @@
     <script src="{% static 'js/post.js' %}"></script>
     <script src="{% static 'js/locations.js' %}"></script>
     <script src="{% static 'js/location.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById('bio').innerHTML = document.getElementById('bio').innerHTML + parseCaption('{{ object.bio|linebreaks  }}');
+        })
+    </script>
 </body>
 
 </html>

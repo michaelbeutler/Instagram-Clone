@@ -273,7 +273,7 @@ function openUserTag(usertag) {
     if (usertag.substring(0, 1) == '@') {
         usertag = usertag.slice(1);
     }
-    window.location.href = 'accounts/' + slugify(usertag);
+    window.location.href = '/accounts/' + slugify(usertag);
 }
 
 function slugify(text) {
