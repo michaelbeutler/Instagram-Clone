@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instagram</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/style/styles.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<div id="top">
+		<div class="topbar clearfix">
+			<a href="index.html">
+				<ul class="brands clearfix">
+					<li class="insta-logo"></li>
+					<li class="insta-logo-type"></li>
+				</ul>
+			</a>
+			<input type="text" class="text-field search" placeholder="Search">
+			<ul class="links">
+				<li class="link explore-icon explore"></li>
+				<li class="link notifications">
+					<div class="like-icon"></div>
+					<ul class="notif-list">
+						<li class="notif clearfix">
+							<div class="avatar-def user-image img1"></div>
+							<div class="notif-info">
+								<p class="notif-msg"><span class="username">don_prince</span> started following you. <span class="notif-time">1h</span></p>
+								<button class="def-button follow">follow</button>
+							</div>
+						</li>
+						<li class="notif clearfix">
+							<div class="avatar-def user-image img2"></div>
+							<div class="notif-info">
+								<p class="notif-msg"><span class="username">shades_of_lin</span> liked your photo. <span class="notif-time">1h</span></p>
+								<div class="notif-image"></div>
+							</div>
+						</li>
+						<li class="notif clearfix">
+							<div class="avatar-def user-image"></div>
+							<div class="notif-info">
+								<p class="notif-msg"><span class="username">i_am_2e</span> liked your photo. <span class="notif-time">2h</span></p>
+								<div class="notif-image"></div>
+							</div>
+						</li>
+						<li class="notif clearfix">
+							<div class="avatar-def user-image img1"></div>
+							<div class="notif-info">
+								<p class="notif-msg"><span class="username">don_prince</span> started following you. <span class="notif-time">3h</span></p>
+								<button class="def-button follow">follow</button>
+							</div>
+						</li>
+						<li class="notif clearfix">
+							<div class="avatar-def user-image img2"></div>
+							<div class="notif-info">
+								<p class="notif-msg"><span class="username">shades_of_lin</span> liked your photo. <span class="notif-time">3h</span></p>
+								<div class="notif-image"></div>
+							</div>
+						</li>
+						<li class="notif clearfix">
+							<div class="avatar-def user-image"></div>
+							<div class="notif-info">
+								<p class="notif-msg"><span class="username">i_am_2e</span> liked your photo. <span class="notif-time">3h</span></p>
+								<div class="notif-image"></div>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<a href="profilepage.html"><li class="link user-icon profile"></li></a>
+			</ul>
+		</div>
+	</div>
+	<div id="body">
+		<div class="user-profile">
+			<div class="profile-brief clearfix">
+				<div class="avatar-display user-image" style="background: url({{ object.avatar.url }}) center no-repeat"></div>
+				<div class="profile-info">
+					<h1 class="username">{{ object.username }}</h1>
+                    {% if is_current_user %}
+					<button class="def-button edit-profile">Edit Profile</button>
+                    {% elif following %}
+                    <button class="def-button follow">Follow</button>
+                    {% else %}
+					<button class="def-button follow">Follow</button>
+                    {% endif %}
+					<div class="analysis clearfix">
+						<p class="data posts"><span class="value">{{ object.posts.all.count }}</span> posts</p>
+						<p class="data followers"><span class="value">{{ object.followers.all.count }}</span> followers</p>
+						<p class="data following"><span class="value">{{ object.following.all.count }}</span> following</p>
+					</div>
+					<p class="name">{{ object.fullname }}</p>
+					<p class="bio">{{ object.bio }}</p>
+				</div>
+			</div>
+		</div>
+		<ul class="user-post-list">
+            {% for p in object.posts.all %}
+            <li class="user-post" style="background: url({{ p.image.url }}) center center / cover;">
+				<div class="post-details">
+					<div class="details clearfix">
+						<h4 class="data likes">{{ p.likes.all.count }}</h4>
+						<h4 class="data comments">{{ p.comments.all.count }}</h4>
+					</div>
+				</div>
+			</li>
+            {% endfor %}	
+		</ul>
+		<div class="view-post">
+			<div class="cancel-icon-white close-view"></div>
+			<div class="post-view clearfix">
+				<div class="post-image"></div>
+				<div class="post-view-details">
+					<div class="header clearfix">
+						<div class="avatar-medium user-image"></div>
+						<h5 class="username">ak_muheez</h5>
+					</div>
+					<div class="post-analysis clearfix">
+						<h4 class="post-likes data">35 likes</h4>
+						<h4 class="post-time data">7w</h4>
+					</div>
+					<p class="post-caption"><span class="username">ak_muheez</span> Coffee is very good in the morning.</p>
+					<ul class="post-comments">
+						<li class="comment"><span class="username">dr_dre</span> Thats very correct!</li>
+						<li class="comment"><span class="username">blawz</span> But too much of it is not good</li>
+					</ul>
+					<div class="post-actions clearfix">
+						<div class="like-icon like-post"></div>
+						<input type="text" name="comment" class="comment text-field" placeholder="Add a comment...">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="edit-profile-view">
+			<div class="cancel-icon-white close-view"></div>
+			<form class="edit-profile-form">
+				<div class="header clearfix">
+					<div class="avatar-medium user-image" style="background: url({{ object.avatar.url }}) center no-repeat"></div>
+					<h2 class="username">{{ object.username }}</h2>
+				</div>
+				<label for="name">Name</label>
+				<input type="text" name="name" class="name text-field" placeholder="{{ object.fullname }}" value="{{ object.fullname }}">
+				<label for="username">Username</label>
+				<input type="text" name="username" class="username text-field" placeholder="{{ object.username }}" value="{{ object.username }}">
+				<label for="bio">Bio</label>
+				<textarea class="text-field bio" placeholder="{{ object.bio }}">{{ object.bio }}</textarea>
+				<input type="submit" name="submit" class="def-button submit" value="Submit">
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript" src="{% static '/js/app.js' %}"></script>
+</body>
+</html>
