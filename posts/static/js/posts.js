@@ -16,14 +16,14 @@ function generatePostsFromJSON(json, callback) {
             cp++;
         }
         var post = findPostById(p.id);
-        $(p.likes).each(function(i, l){
+        $(p.likes).each(function (i, l) {
             if (findUserById(l.user.id) === false) {
                 users.unshift(new User(l.user.id, l.user.username, l.user.avatar, l.user.url));
                 cu++;
             }
             post.likes.unshift(new Like(findUserById(l.user.id), post));
         });
-        $(p.comments).each(function(i, c){
+        $(p.comments).each(function (i, c) {
             if (findUserById(c.user.id) === false) {
                 users.unshift(new User(c.user.id, c.user.username, c.user.avatar, c.user.url));
                 cu++;
@@ -38,7 +38,7 @@ function generatePostsFromJSON(json, callback) {
 }
 
 function displayPosts(element) {
-    $(posts).each(function(i, p){
+    $(posts).each(function (i, p) {
         $(element).append(p.html);
         console.log("generated post " + p.id);
     });
@@ -47,23 +47,44 @@ function displayPosts(element) {
 }
 
 function setPostEventListeners() {
-    $('.post-image').dblclick(function(){
-        findPostById($(this).data("id")).like();
+    $('.post-image').dblclick(function () {
+        findPostById($(this).data("id")).like(getCurrentUserId());
     });
-    $('.textarea-comment').change(function(){
+    $('.textarea-comment').change(function () {
         if ($(this).val().length == 0) {
             $(this).parent().parent().find('button').attr('disabled', true);
         } else {
             $(this).parent().parent().find('button').attr('disabled', false);
-        }  
+        }
     });
-    $('.textarea-comment').keyup(function(){
+    $('.textarea-comment').keyup(function () {
         if ($(this).val().length == 0) {
             $(this).parent().parent().find('button').attr('disabled', true);
         } else {
             $(this).parent().parent().find('button').attr('disabled', false);
-        }  
+        }
     });
+    $('.textarea-comment').on('keypress', function (e) {
+        if (e.which == 13) {
+            if ($(this).val().length > 0) {
+                findPostById($(this).data('id')).comment(getCurrentUserId());
+            }
+        }
+    });
+    $('.textarea-comment').keyup(function () {
+        var v = $(this).val();
+        if (v.substr(v.length - 1, v.length) == '@') {
+            showUserTagSuggestion(this);
+        }
+    });
+    $('.sprite-comment').click(function () {
+        $('#commentInput' + $(this).data('id')).focus();
+    });
+}
+
+function showUserTagSuggestion(element) {
+    $(element).val($(element).val() + 'michi.beutler');
+    
 }
 
 function requestPostList(callback) {

@@ -40,8 +40,8 @@ class Post {
             <img src="${this.image}" alt="" class="post-image" data-id="${this.id}" style="object-fit: cover;" decoding="auto" sizes="614px">
             <footer class="post-footer">
                 <div class="row">
-                    <div class="col"><span class="d-inline-block btn-like ${liked}" id="likeButton${this.id}" onclick="findPostById(${this.id}).like(${getCurrentUserId()})"></span><span
-                            class="d-inline-block sprite-comment ml-2"></span></div>
+                    <div class="col"><span class="d-inline-block btn-like ${liked}" id="likeButton${this.id}" onclick="findPostById(${this.id}).like(${getCurrentUserId()})"></span>
+                    <span data-id="${this.id}" class="d-inline-block sprite-comment ml-2"></span></div>
                 </div>
                 <div class="row" id="likeContainer${this.id}">
                     ${this.getLikeHtml()}
@@ -62,7 +62,7 @@ class Post {
                 <hr>
                 <div class="row">
                     <div class="col-md-10 col-9">
-                            <textarea id="commentInput${this.id}" class="d-inline-block form-group form-control-sm textarea-comment"
+                            <textarea id="commentInput${this.id}" data-id="${this.id}" class="d-inline-block form-group form-control-sm textarea-comment"
                             placeholder="Kommentar hinzufügen ..." autocomplete="off" autocorrect="off"></textarea>
                     </div>
                     <div class="col-md-2 col-3"><button id="commentButton${this.id}" class="d-inline-block btn" onclick="findPostById(${this.id}).comment(${getCurrentUserId()})" disabled="true">Posten</button></div>
@@ -140,8 +140,6 @@ class Post {
                             <a class="profile-url" href="${this.comments[0].user.url}">${this.comments[0].user.username}</a> ${parseCaption(this.comments[0].comment)}
                             <br>
                             <a class="profile-url" href="${this.comments[1].user.url}">${this.comments[1].user.username}</a> ${parseCaption(this.comments[1].comment)}
-                            <br>
-                            <a class="profile-url" href="${this.comments[2].user.url}">${this.comments[2].user.username}</a> ${parseCaption(this.comments[2].comment)}
                             <br>
                             <a href="#" class="text-muted"><small>Alle ${this.comments.length} Kommentare ansehen</small></a>
                             </div>

@@ -114,7 +114,7 @@ def get_posts(request):
                 "url": post.location.name
             },
             "caption": post.caption,
-            "date": naturaltime(post.date).upper(),
+            "date": naturaltime(post.date),
             "allowComment": True,
             "comments": comment_data,
             "likes": like_data,
