@@ -145,6 +145,21 @@ def get_profile(request):
     return JsonResponse(data)
 
 @require_http_methods(["GET"])
+def get_locations(request):
+    locations = Location.objects.all().order_by('-pk')[:10]
+    location_data = []
+    for l in locations:
+        location_data.append({"id": l.pk, "name": l.name, "url": l.slug})
+    data = {
+        "code": 200,
+        "description": "success",
+        "data": {
+            "locations": location_data
+        }
+    }
+    return JsonResponse(data)
+
+@require_http_methods(["GET"])
 def get_current_user(request):
     data = {
         "code": 200,

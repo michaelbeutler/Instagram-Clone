@@ -21,6 +21,15 @@ def follow(request, pk):
         return JsonResponse({'code':201, 'description':'success'})
     return JsonResponse({'code':200, 'description':'already following'})
 
+def unfollow(request, pk):
+    target = get_object_or_404(User, pk=pk)
+    num_results = UserRelation.objects.filter(follower=request.user, target=target).count()
+    if num_results == 1:
+        ur = UserRelation.objects.filter(follower=request.user, target=target)
+        ur.delete()
+        return JsonResponse({'code':201, 'description':'success'})
+    return JsonResponse({'code':200, 'description':'not following'})
+
 # Create your views here.
 class RegisterView(CreateView):
     model = User
@@ -56,6 +65,7 @@ class ProfileView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
+        context['current_user'] = self.request.user
         if self.request.user == context['object']:
             context['is_current_user'] = True
         else:

@@ -134,7 +134,7 @@ class Post {
                     break;
 
                 default:
-                    if (post.comments.length > 2) {
+                    if (this.comments.length > 2) {
                         comment_html = `
                             <div class="col">
                             <a class="profile-url" href="${this.comments[0].user.url}">${this.comments[0].user.username}</a> ${parseCaption(this.comments[0].comment)}

@@ -77,6 +77,13 @@
     background-color: rgb(204, 204, 204);
     padding-left: 5px;
     padding-right: 5px;
+    cursor: pointer;
+}
+
+.badge-light.active {
+    color: #fff;
+    background-color: #0062cc;
+    border-color: #005cbf;
 }
 
 .btn-new {

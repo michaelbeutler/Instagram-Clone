@@ -35,7 +35,7 @@
                                     class="d-inline-block sprite-header-new"></span></a></div>
                         <div class="col"><a class="nav-link" href="#"><span
                                     class="d-inline-block sprite-header-like"></span></a></div>
-                        <div class="col"><a class="nav-link" href="{% url 'profile' user.slug %}"><span
+                        <div class="col"><a class="nav-link" href="{% url 'profile' current_user.slug %}"><span
                                     class="d-inline-block sprite-header-profile"></span></a></div>
                     </div>
                 </div>
@@ -68,10 +68,10 @@
 
                                 {% else %}
                                 {% if following %}
-                                <button class="btn btn-secondary btn-sm">Abboniert</button>
+                                <button id="followBtn" class="btn btn-secondary btn-sm" onclick="findUserById({{ object.pk }}).unfollow()">Abonniert</button>
                                 {% else %}
-                                <button class="btn btn-primary btn-sm"
-                                    onclick="findUserById({{ object.pk }}).follow()">Abbonieren</button>
+                                <button id="followBtn" class="btn btn-primary btn-sm"
+                                    onclick="findUserById({{ object.pk }}).follow()">Folgen</button>
                                 {% endif %}
                                 {% endif %}
 
@@ -211,6 +211,7 @@
     <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
 
+    <script src="{% static 'js/ajax.js' %}"></script>
     <script src="{% static 'js/users.js' %}"></script>
     <script src="{% static 'js/user.js' %}"></script>
     <script src="{% static 'js/posts.js' %}"></script>
@@ -221,7 +222,8 @@
     <script>
         $(document).ready(function () {
             document.getElementById('bio').innerHTML = document.getElementById('bio').innerHTML + parseCaption('{{ object.bio|linebreaks  }}');
-        })
+        });
+        users.unshift(new User({{ object.pk }}, '{{object.username}}', '{{object.avatar.url}}', '{{object.slug}}'));
     </script>
 </body>
 

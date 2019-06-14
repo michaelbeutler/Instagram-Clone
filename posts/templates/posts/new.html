@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-3 col-lg-1">
                         <img id="output" class="new-preview"
-                            src="img/42002584_995628447264876_5615867123332022272_n.jpg" alt="" />
+                            src="/media/posts/default.jpg" alt="" />
                     </div>
                     <div class="col-9 col-lg-11">
                         <textarea class="form-control new-caption-textarea" name="caption"  maxlength="100" id="caption" cols="30"
@@ -75,10 +75,9 @@
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <input type="hidden" name="location" value="1">
+                        <input type="hidden" name="location" value="1" id="locationInput">
                         <a>Ort hinzufügen <span class="float-right">></span></a><br><br>
-                        <span class="badge badge-light p-1">Switzerland</span>
-                        <span class="badge badge-light p-1">Hölstein, Switzerland</span>
+                        <div id="locationSelection"></div>
                     </div>
                 </div>
                 <hr>
@@ -123,10 +122,24 @@
 
     <script src="{% static 'dist/js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/like.js' %}"></script>
-    <script src="{% static 'js/comment.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+
+    <script src="{% static 'js/users.js' %}"></script>
+    <script src="{% static 'js/user.js' %}"></script>
+    <script src="{% static 'js/posts.js' %}"></script>
+    <script src="{% static 'js/post.js' %}"></script>
+    <script src="{% static 'js/locations.js' %}"></script>
+    <script src="{% static 'js/location.js' %}"></script>
+
     <script src="{% static 'js/file-upload.js' %}"></script>
-    <script src="{% static 'js/new.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            requestLocationList(function(list){
+                fillLocationSelection(list);
+            })
+        })
+    </script>
 </body>
 
 </html>
