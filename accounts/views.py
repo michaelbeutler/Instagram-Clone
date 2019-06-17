@@ -7,6 +7,27 @@ from django.utils.text import slugify
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
+
+@require_http_methods(["GET"])
+def get_latest_users(request):
+    l_users = User.objects.order_by('-pk')[:5][::-1]
+    l_users_data = []
+    for u in l_users:
+        l_users_data.append({
+            "id": u.pk,
+            "username": u.username,
+            "url": "accounts/" + u.slug,
+            "avatar": u.avatar.url
+        })
+    data = {
+        "code": 200,
+        "description": "success",
+        "data": {
+            "users": l_users_data
+        }
+    }
+    return JsonResponse(data)
 
 def logout_view(request):
     logout(request)
@@ -55,7 +76,7 @@ def register(request):
 class ProfileView(UpdateView):
     model = User
     template_name = 'accounts/profile.html'
-    fields = ['avatar', 'fullname', 'username', 'bio']
+    fields = ['avatar', 'fullname', 'username', 'bio', 'bp']
     success_url = reverse_lazy('home')
 
     def get_queryset(self, *args, **kwargs):

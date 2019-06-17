@@ -68,6 +68,7 @@ def get_posts(request):
     posts = Post.objects.all()
     post_data = []
     for post in posts:
+
         comment_data = []
         for comment in post.comments.all():
             comment_data.append(
@@ -82,44 +83,45 @@ def get_posts(request):
                     "comment": comment.text
                 }
             )
-        like_data = []
-        liked = False
-        for like in post.likes.all():
-            like_data.append(
-                {
-                    "id": like.pk,
-                    "user": {
-                        "id": like.account.pk,
-                        "username": like.account.username,
-                        "url": "accounts/" + like.account.slug,
-                        "avatar": like.account.avatar.url
+            like_data = []
+            liked = False
+            for like in post.likes.all():
+                like_data.append(
+                    {
+                        "id": like.pk,
+                        "user": {
+                            "id": like.account.pk,
+                            "username": like.account.username,
+                            "url": "accounts/" + like.account.slug,
+                            "avatar": like.account.avatar.url
+                        }
                     }
-                }
-            )
-            if like.account == request.user:
-                liked = True
+                )
+                if like.account == request.user:
+                    liked = True
 
-        post_data.append({
-            "id": post.pk,
-            "user": {
-                "id": post.account.pk,
-                "username": post.account.username,
-                "url": "accounts/" + post.account.slug,
-                "avatar": post.account.avatar.url
-            },
-            "image": post.image.url,
-            "location": {
-                "id": post.location.pk,
-                "name": post.location.name,
-                "url": post.location.name
-            },
-            "caption": post.caption,
-            "date": naturaltime(post.date),
-            "allowComment": True,
-            "comments": comment_data,
-            "likes": like_data,
-            "liked": liked       
-        })
+        if post.account.isAllowed(request.user):
+            post_data.append({
+                "id": post.pk,
+                "user": {
+                    "id": post.account.pk,
+                    "username": post.account.username,
+                    "url": "accounts/" + post.account.slug,
+                    "avatar": post.account.avatar.url
+                },
+                "image": post.image.url,
+                "location": {
+                    "id": post.location.pk,
+                    "name": post.location.name,
+                    "url": post.location.name
+                },
+                "caption": post.caption,
+                "date": naturaltime(post.date),
+                "allowComment": True,
+                "comments": comment_data,
+                "likes": like_data,
+                "liked": liked    
+            })
     
 
     data = {
