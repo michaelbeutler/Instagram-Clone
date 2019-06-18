@@ -20,6 +20,8 @@ class NewView(CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
+        if Location.objects.all().count() > 1:
+            Location.objects.create(name="Switzerland", slug="switzerland")
         post = form.save(commit=False)
         post.account = self.request.user
         post.date = datetime.datetime.now()
