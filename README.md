@@ -1,3 +1,10 @@
+![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)
+
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![Open Source Love png2](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/MichiBeutler/Instagram-Clone/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/MichiBeutler/Instagram-Clone.svg)](https://GitHub.com/MichiBeutler/Instagram-Clone/graphs/contributors/)
+
 #  :camera: Instagram Clone
 
 Everyone knows the famous social media platform [Instagram](https://instagram.com). For a school project i tried to recreate this platform and tried to write a web app with similar functions and look and feel.
