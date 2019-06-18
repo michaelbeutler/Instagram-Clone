@@ -7,6 +7,8 @@ Everyone knows the famous social media platform [Instagram](https://instagram.co
 
 Instagram is build with Django so i used Django too for this project. I hope you enjoy it and mabye learnd something new.
 
+[:mag_right: Screenshots](https://github.com/MichiBeutler/Instagram/tree/master/sreenshots)
+
 Press F to pay respect to glorious developer.
 
 ## :checkered_flag: Getting started
@@ -39,7 +41,7 @@ install.cmd
 # Linux
 install.sh
 ```
-
+![Install Script Screenshot](https://github.com/MichiBeutler/Instagram/blob/master/sreenshots/install.cmd.jpg)
 
 ## :books: Built With
 
@@ -56,3 +58,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
       
 ## :ok_hand: Acknowledgments
 * you can create your own social media platform and also add some additionals feautrs to instagram :stuck_out_tongue_closed_eyes:
+
+![Feed Screenshot](https://github.com/MichiBeutler/Instagram/blob/master/sreenshots/feed.jpg)
