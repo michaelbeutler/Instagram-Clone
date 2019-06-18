@@ -68,7 +68,8 @@ def get_posts(request):
     posts = Post.objects.all()
     post_data = []
     for post in posts:
-
+        like_data = []
+        liked = False
         comment_data = []
         for comment in post.comments.all():
             comment_data.append(
@@ -83,8 +84,7 @@ def get_posts(request):
                     "comment": comment.text
                 }
             )
-            like_data = []
-            liked = False
+            
             for like in post.likes.all():
                 like_data.append(
                     {
