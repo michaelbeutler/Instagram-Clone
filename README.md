@@ -7,10 +7,14 @@ Everyone knows the famous social media platform [Instagram](https://instagram.co
 
 Instagram is build with Django so i used Django too for this project. I hope you enjoy it and mabye learnd something new.
 
+[:mag_right: Screenshots](https://github.com/MichiBeutler/Instagram-Clone/tree/master/sreenshots)
+
 Press F to pay respect to glorious developer.
 
 ## :checkered_flag: Getting started
 Install this app like discribed in the manual below, creat a superuser and get started.
+
+After installing you can access [http://localhost:8000/](http://localhost:8000/).
 
 ## :package: Prerequisites
 
@@ -20,7 +24,7 @@ Install this app like discribed in the manual below, creat a superuser and get s
 ## :rocket: Installation
 At first you have to clone the git reprository in your directory:
 ```
-git clone https://github.com/MichiBeutler/Instagram.git
+git clone https://github.com/MichiBeutler/Instagram-Clone.git
 ```
 
 Django uses Python so you have to install this first if its not already installed.
@@ -29,6 +33,8 @@ Download Python for Windows: [Download](https://www.python.org/downloads/windows
 
 
 If Django 2.1 is not installed or not the correct version you can install it by using `pip install django`
+
+Maybe you also have to install Pillow by using `pip install pillow`
 
 For easy installation you can run the install script after you installed [Python 3](https://www.python.org) and [Django 2.1](https://www.djangoproject.com/).
 
@@ -39,7 +45,13 @@ install.cmd
 # Linux
 install.sh
 ```
+![Install Script Screenshot](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/install.cmd.jpg)
 
+The script creates the database and the needed tables. After you have to create a superuser for accessing the admin site. The install script creates one for you.
+
+Just type your username, email and password when asked and the server starts after that.
+
+After installing you can access [http://localhost:8000/](http://localhost:8000/).
 
 ## :books: Built With
 
@@ -49,10 +61,14 @@ install.sh
 ## :octocat: Authors
 * **Michael Beutler** - *initial work* - [MichiBeutler](https://github.com/MichiBeutler)
 
-See also the list of [contributors](https://github.com/MichiBeutler/VacManager/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/MichiBeutler/Instagram-Clone/graphs/contributors) who participated in this project.
 
 ## :lock: License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/MichiBeutler/VacManager/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/MichiBeutler/Instagram-Clone/blob/master/LICENSE) file for details
       
 ## :ok_hand: Acknowledgments
+Feel free to fork this repro and add your own functions!
 * you can create your own social media platform and also add some additionals feautrs to instagram :stuck_out_tongue_closed_eyes:
+
+
+![Feed Screenshot](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/feed.jpg)
