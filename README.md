@@ -14,7 +14,7 @@ Everyone knows the famous social media platform [Instagram](https://instagram.co
 
 Instagram is build with Django so i used Django too for this project. I hope you enjoy it and mabye learnd something new.
 
-[:mag_right: Screenshots](https://github.com/MichiBeutler/Instagram-Clone/tree/master/sreenshots)
+:mag_right: [Screenshots](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/screenshots.md)
 
 Press F to pay respect to glorious developer.
 
