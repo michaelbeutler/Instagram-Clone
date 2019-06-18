@@ -34,6 +34,8 @@ Download Python for Windows: [Download](https://www.python.org/downloads/windows
 
 If Django 2.1 is not installed or not the correct version you can install it by using `pip install django`
 
+Maybe you also have to install Pillow by using `pip install pillow`
+
 For easy installation you can run the install script after you installed [Python 3](https://www.python.org) and [Django 2.1](https://www.djangoproject.com/).
 
 ```
