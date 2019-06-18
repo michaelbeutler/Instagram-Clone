@@ -14,6 +14,8 @@ Press F to pay respect to glorious developer.
 ## :checkered_flag: Getting started
 Install this app like discribed in the manual below, creat a superuser and get started.
 
+After installing you can access [http://localhost:8000/](http://localhost:8000/).
+
 ## :package: Prerequisites
 
 * [Django 2.1](https://www.djangoproject.com/)
@@ -43,6 +45,12 @@ install.sh
 ```
 ![Install Script Screenshot](https://github.com/MichiBeutler/Instagram/blob/master/sreenshots/install.cmd.jpg)
 
+The script create the database and the needed tables. After you have to create a superuser for accessing the admin site. The install script creates one for you.
+
+Just type your username, email and password when asked and the server starts after that.
+
+After installing you can access [http://localhost:8000/](http://localhost:8000/).
+
 ## :books: Built With
 
 * [Bootstrap](https://getbootstrap.com/) - The web framework used
@@ -57,6 +65,8 @@ See also the list of [contributors](https://github.com/MichiBeutler/VacManager/g
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/MichiBeutler/VacManager/blob/master/LICENSE) file for details
       
 ## :ok_hand: Acknowledgments
+Feel free to fork this repro and add your own functions!
 * you can create your own social media platform and also add some additionals feautrs to instagram :stuck_out_tongue_closed_eyes:
+
 
 ![Feed Screenshot](https://github.com/MichiBeutler/Instagram/blob/master/sreenshots/feed.jpg)
