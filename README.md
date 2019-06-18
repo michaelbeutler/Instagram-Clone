@@ -14,8 +14,8 @@ Install this app like discribed in the manual below, creat a superuser and get s
 
 ## :package: Prerequisites
 
-* Django 2.1
-* Python 3
+* [Django 2.1](https://www.djangoproject.com/)
+* [Python 3](https://www.python.org)
 
 ## :rocket: Installation
 At first you have to clone the git reprository in your directory:
@@ -30,7 +30,8 @@ Download Python for Windows: [Download](https://www.python.org/downloads/windows
 
 If Django 2.1 is not installed or not the correct version you can install it by using `pip install django`
 
-For easy installation you can run the install script after you installed Python and Django.
+For easy installation you can run the install script after you installed [Python 3](https://www.python.org) and [Django 2.1](https://www.djangoproject.com/).
+
 ```
 # Windows
 install.cmd
@@ -38,6 +39,7 @@ install.cmd
 # Linux
 install.sh
 ```
+
 
 ## :books: Built With
 
