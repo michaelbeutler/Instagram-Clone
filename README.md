@@ -45,7 +45,7 @@ install.sh
 ```
 ![Install Script Screenshot](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/install.cmd.jpg)
 
-The script create the database and the needed tables. After you have to create a superuser for accessing the admin site. The install script creates one for you.
+The script creates the database and the needed tables. After you have to create a superuser for accessing the admin site. The install script creates one for you.
 
 Just type your username, email and password when asked and the server starts after that.
 
