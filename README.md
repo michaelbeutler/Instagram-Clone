@@ -38,6 +38,10 @@ Django uses Python so you have to install this first if its not already installe
 
 Download Python for Windows: [Download](https://www.python.org/downloads/windows/)
 
+Download Python for Mac OS X: [Download](https://www.python.org/downloads/mac-osx/)
+
+Download Python for Linux: `$ sudo apt-get install python`
+
 
 If Django 2.1 is not installed or not the correct version you can install it by using `pip install django`
 
