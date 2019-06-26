@@ -147,7 +147,7 @@
                             <div class="form-group row">
                                 <label for="fullname" class="col-sm-2 col-form-label text-right">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="fullname" id="fullname"
+                                    <input type="text" maxlength="30" class="form-control" name="fullname" id="fullname"
                                         placeholder="Name" value="{{ user.fullname }}">
                                 </div>
                             </div>
@@ -155,7 +155,7 @@
                             <div class="form-group row">
                                 <label for="username" class="col-sm-2 col-form-label text-right">Benutzername</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="username" id="username"
+                                    <input type="text" maxlength="50" required="true" class="form-control" name="username" id="username"
                                         placeholder="Benutzername" value="{{ user.username }}">
                                 </div>
                             </div>
@@ -163,8 +163,14 @@
                             <div class="form-group row">
                                 <label for="bio" class="col-sm-2 col-form-label text-right">Steckbrief</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="bio" name="bio" placeholder="Steckbrief"
+                                    <textarea class="form-control" maxlength="100" id="bio" name="bio" placeholder="Steckbrief"
                                         value="{{ user.bio }}">{{ user.bio }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="bp" class="col-sm-2 col-form-label text-right">Öffentliches Profil</label>
+                                <div class="col-sm-10">
+                                    {{form.bp}}
                                 </div>
                             </div>
                         </div>
