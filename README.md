@@ -62,7 +62,9 @@ The script creates the database and the needed tables. After you have to create 
 
 Just type your username, email and password when asked and the server starts after that.
 
-After installing you can access [http://localhost:8000/](http://localhost:8000/).
+After installing you can access [http://localhost:8000/admin/](http://localhost:8000/admin/) and add at least one location to the dataset. Just log in with your created superuser and navigate to locations and press add. Now its up to you what your first location will be called like. Keep in mind that your location must also provide a slug. This is just your locationname with no spaces and small charakters.
+
+Now you can use this app by navigate to [http://localhost:8000/](http://localhost:8000/) and use this app.
 
 ## :books: Built With
 
