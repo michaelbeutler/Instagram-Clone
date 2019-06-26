@@ -35,6 +35,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     def getFollowing(self):
         return self.following.all()
 
+    def isAllowed(self, user):
+        following = False
+        for r in self.getFollowers():
+            if r.accepted and r.follower == user:
+                following = True
+            else:
+                following = False
+        if self.bp or following or self == user:
+            return True
+        else:
+            return False
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
         #self.set_password(self.password)

@@ -99,6 +99,10 @@
                 <div class="row">
                     <div class="col">
                         <div class="row">
+                        {% if following or is_current_user or object.bp %}
+                         {% if object.posts.all.count == 0 %}
+                            <p>Noch keine Beträge vorhanden</p>
+                            {% endif %}
                             {% for p in object.posts.all %}
                             <div class="col-md-4 col-12">
                                 <article class="post-preview">
@@ -106,6 +110,9 @@
                                 </article>
                             </div>
                             {% endfor %}
+                        {% else %}
+                        Privat
+                        {% endif %}
                         </div>
                     </div>
                 </div>
@@ -168,7 +175,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+<<<<<<< HEAD
                                 <label for="bp" class="col-sm-2 col-form-label text-right">Öffentliches Profil</label>
+=======
+                                <label for="bp" class="col-sm-2 col-form-label text-right">Steckbrief</label>
+>>>>>>> 47db9e0650d2c931a9bb2a8c67654d9eaba483d2
                                 <div class="col-sm-10">
                                     {{form.bp}}
                                 </div>
