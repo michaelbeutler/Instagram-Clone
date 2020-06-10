@@ -2,8 +2,8 @@
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Open Source Love png2](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/MichiBeutler/Instagram-Clone/graphs/commit-activity)
-[![GitHub contributors](https://img.shields.io/github/contributors/MichiBeutler/Instagram-Clone.svg)](https://GitHub.com/MichiBeutler/Instagram-Clone/graphs/contributors/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/michaelbeutler/Instagram-Clone/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/michaelbeutler/Instagram-Clone.svg)](https://GitHub.com/michaelbeutler/Instagram-Clone/graphs/contributors/)
 
 #  :camera: Instagram Clone
 
@@ -14,7 +14,7 @@ Everyone knows the famous social media platform [Instagram](https://instagram.co
 
 Instagram is build with Django so i used Django too for this project. I hope you enjoy it and mabye learnd something new.
 
-:mag_right: [Screenshots](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/screenshots.md)
+:mag_right: [Screenshots](https://github.com/michaelbeutler/Instagram-Clone/blob/master/sreenshots/screenshots.md)
 
 Press F to pay respect to glorious developer.
 
@@ -31,7 +31,7 @@ After installing you can access [http://localhost:8000/](http://localhost:8000/)
 ## :rocket: Installation
 At first you have to clone the git reprository in your directory:
 ```
-git clone https://github.com/MichiBeutler/Instagram-Clone.git
+git clone https://github.com/michaelbeutler/Instagram-Clone.git
 ```
 
 Django uses Python so you have to install this first if its not already installed.
@@ -56,7 +56,7 @@ install.cmd
 # Linux
 install.sh
 ```
-![Install Script Screenshot](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/install.cmd.jpg)
+![Install Script Screenshot](https://github.com/michaelbeutler/Instagram-Clone/blob/master/sreenshots/install.cmd.jpg)
 
 The script creates the database and the needed tables. After you have to create a superuser for accessing the admin site. The install script creates one for you.
 
@@ -72,16 +72,16 @@ Now you can use this app by navigate to [http://localhost:8000/](http://localhos
 * [JQuery](https://jquery.com/)
 
 ## :octocat: Authors
-* **Michael Beutler** - *initial work* - [MichiBeutler](https://github.com/MichiBeutler)
+* **Michael Beutler** - *initial work* - [michaelbeutler](https://github.com/michaelbeutler)
 
-See also the list of [contributors](https://github.com/MichiBeutler/Instagram-Clone/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/michaelbeutler/Instagram-Clone/graphs/contributors) who participated in this project.
 
 ## :lock: License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/MichiBeutler/Instagram-Clone/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/michaelbeutler/Instagram-Clone/blob/master/LICENSE) file for details
       
 ## :ok_hand: Acknowledgments
 Feel free to fork this repro and add your own functions!
 * you can create your own social media platform and also add some additionals feautrs to instagram :stuck_out_tongue_closed_eyes:
 
 
-![Feed Screenshot](https://github.com/MichiBeutler/Instagram-Clone/blob/master/sreenshots/feed.jpg)
+![Feed Screenshot](https://github.com/michaelbeutler/Instagram-Clone/blob/master/sreenshots/feed.jpg)
