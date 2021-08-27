@@ -81,7 +81,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
       
 ## :ok_hand: Acknowledgments
 Feel free to fork this repro and add your own functions!
-* you can create your own social media platform and also add some additionals feautrs to instagram :stuck_out_tongue_closed_eyes:
+* you can create your own social media platform and also add some additionals feature to instagram :stuck_out_tongue_closed_eyes:
 
 
 ![Feed Screenshot](https://github.com/michaelbeutler/Instagram-Clone/blob/master/sreenshots/feed.jpg)
