@@ -9,7 +9,7 @@
 
 Everyone knows the famous social media platform [Instagram](https://instagram.com). For a school project i tried to recreate this platform and tried to write a web app with similar functions and look and feel.
 
-> Instagram is a photo and video-sharing social networking service owned by Facebook, Inc. It was created by Kevin Systrom and Mike Krieger, and launched in October 2010 exclusively on iOS.
+> Instagram is a photo and video-sharing social networking service owned by Facebook Inc. It was created by Kevin Systrom and Mike Krieger, and launched in October 2010 exclusively on iOS.
 [Wikipedia](https://en.wikipedia.org/wiki/Instagram)
 
 Instagram is build with Django so i used Django too for this project. I hope you enjoy it and mabye learnd something new.
